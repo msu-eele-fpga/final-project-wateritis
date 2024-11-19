@@ -1,14 +1,28 @@
 # Final project proposal
-This file is the template for your final project proposal. Please update this file with your proposal details (delete these first two sentences, please :slightly_smiling_face:)
 
-## Hardware/software proposal 1
-Describe one of the hardware and software proposals. The hardware and software must work together. Include a brief description of the hardware/software interface (e.g., what sort of registers will you create/use, etc.)
+## Hardware
+For the hardware of this project, it will be split up as follows:
 
-## Hardware/software proposal 2
-Describe the other hardware and software proposal. The hardware and software must work together. Include a brief description of the hardware/software interface (e.g., what sort of registers will you create/use, etc.)
+1. will produce the hardware to connect the water TDS sensore to the fpga through the ADC. He will also use a LED bar to show voltage level.
+
+2. The buzzer will respond to the water quality level and output sound when triggered. Possibly looking at a warning and a danger output based on water quality. The hardware would be writing vhdl to output the necessary signals for this device to work. This also will include LEDs to show the buzzer has triggered
+
+## Software
+For the Software of this project, it will be split up as follows:
+
+1. The buzzer will have alternate tones it can output which will be controlled from software.
+2. The digital ouput from the ADC will be fed into from the ARM chip to the FPGA chip that will then output in the LED bar the level of voltage generated from the water TDS sensor.
 
 ## Extra credit
-Define any extra credit proposals here.
+
 
 ## Division of labor
-Briefly describe who will be working on what. For extra credit tasks and any software above the driver level, it is okay for both group members to work on a single piece, so long as the division of labor and responsibilities are clear.
+for the division of labor each person will be assigned to the following:
+
+### Kenneth Vincent
+    -Hardware: 1 
+    -Software: 1
+
+### Grant Kirkland
+    -Hardware: 2
+    -Software: 2
