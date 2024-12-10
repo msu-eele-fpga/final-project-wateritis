@@ -1,0 +1,1 @@
+savedcmd_/home/mitch/labs-and-homework-KennethVincent/linux/led-patterns/Module.symvers :=  scripts/mod/modpost -M        -o /home/mitch/labs-and-homework-KennethVincent/linux/led-patterns/Module.symvers -T /home/mitch/labs-and-homework-KennethVincent/linux/led-patterns/modules.order -i Module.symvers -e 
