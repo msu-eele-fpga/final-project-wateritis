@@ -1,0 +1,111 @@
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+bin/
+*.exe
+*.out
+*.app
+*.i?86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Quartus project files
+*.bak
+*.cmp
+*_inst.vhd
+*.done
+*.eqn
+*.hex
+*.html
+*.jdi
+*.pin
+*.pof
+*.ptf.*
+*.qar
+*.qarlog
+*.qws
+*.rpt
+*.smsg
+*.sof
+*.sopc_builder
+*.hdb
+*.rcfdb
+*.kpt
+*.cdb
+*.hsd
+*.logdb
+*.opi
+*.dfp
+*.dpi
+*.db_info
+*.ammdb
+*.sig
+*.hb_info
+*.summary
+*srf
+c5_pin_model_dump.txt
+synthesis/
+submodules/
+soc_system/
+hps_isw_handoff/
+db/
+.qsys_edit/
+incremental_db/
+output_files/
+work/
+quartus/**/simulation/
+*.tcl~
+
+# Questa files
+vsim.wlf
+*.cr.mti
+work/
+transcript
+
+
+# Vim swap files
+*.swp
