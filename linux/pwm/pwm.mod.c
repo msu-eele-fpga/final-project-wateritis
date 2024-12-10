@@ -34,5 +34,5 @@ MODULE_INFO(retpoline, "Y");
 
 MODULE_INFO(depends, "");
 
-MODULE_ALIAS("of:N*T*CVincent,led_patterns");
-MODULE_ALIAS("of:N*T*CVincent,led_patternsC*");
+MODULE_ALIAS("of:N*T*CVincent,pwm");
+MODULE_ALIAS("of:N*T*CVincent,pwmC*");

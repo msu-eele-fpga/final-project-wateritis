@@ -9,33 +9,34 @@
 #include <linux/kstrtox.h>
 #define SPAN 16
 
-#define HPS_LED_CONTROL_OFFSET 0
-#define BASE_PERIOD_OFFSET 4
-#define LED_REG_OFFSET 8
+#define Red_out_OFFSET 0
+#define Green_out_OFFSET 4
+#define Blue_out_OFFSET 8
 
    
 
 
     /**
-    * struct led_patterns_dev - Private led patterns device struct.
+    * struct pwm_dev - Private pwm patterns device struct.
     * @base_addr: Pointer to the component's base address
-    * @hps_led_control: Address of the hps_led_control register
-    * @base_period: Address of the base_period register
-    * @led_reg: Address of the led_reg register
+    * @red_out: Address of the red_out register
+    * @green_out: Address of the green_out register
+    * @blue_out: Address of the blue_out register
     *
-    * An led_patterns_dev struct gets created for each led patterns component.
+    * An pwm_dev struct gets created for each pwm patterns component.
     */
-    struct led_patterns_dev {
+    struct pwm_dev {
     void __iomem *base_addr;
-    void __iomem *hps_led_control;
-    void __iomem *base_period;
-    void __iomem *led_reg;
+    void __iomem *red_out;
+    void __iomem *green_out;
+    void __iomem *blue_out;
+    void __iomem *peri;
     struct miscdevice miscdev;
     struct mutex lock;
     };
 
     /**
-    *led_patterns_read() - Read method for the led_patterns char device
+    *pwm_read() - Read method for the pwm char device
     *@file: pointer to the char device file struct.
     *@buf: User-space buffer to read the value into
     *@count: the number of bytes being requested
@@ -46,17 +47,11 @@
     *value is returned
     *
     */
-    static ssize_t led_patterns_read(struct file *file, char __user *buf, size_t count, loff_t *offset){
+    static ssize_t pwm_read(struct file *file, char __user *buf, size_t count, loff_t *offset){
         size_t ret;
         u32 val;
 
-        /*
-        *Get the device's private data from the file struct's private_data
-        *feild. The private_data feild is equal to the miscdev feild in the
-        *led_patterns_dev struct. container_of returns the
-        *led_patterns_dev struct that contains the miscdev in private_data
-        */
-        struct led_patterns_dev *priv = container_of(file->private_data, struct led_patterns_dev, miscdev);
+        struct pwm_dev *priv = container_of(file->private_data, struct pwm_dev, miscdev);
 
         //Check file offset to make sure we are reading from a valid location.
         if(*offset <0){
@@ -69,7 +64,7 @@
         }
         if((*offset % 0x4) != 0){
             // Prevent unaligned access.
-            pr_warn("led_patterns_read: unaligned access\n");
+            pr_warn("pwm_read: unaligned access\n");
             return -EFAULT;
         }
 
@@ -78,7 +73,7 @@
         //Copy the value to userspace
         ret = copy_to_user(buf, &val, sizeof(val));
         if(ret == sizeof(val)){
-            pr_warn("led_patterns_read: Nothing copied\n");
+            pr_warn("pwm_read: Nothing copied\n");
             return -EFAULT;
         }
         // Increment the file offset by the number of bytes we read
@@ -88,7 +83,7 @@
     }
 
     /**
-    * led_patterns_write() - Write method for the led_patterns char device
+    * pwm_write() - Write method for the pwm char device
     * @file: Pointer to the char device file struct.
     * @buf: User-space buffer to read the value from.
     * @count: The number of bytes being written.
@@ -98,14 +93,14 @@
     * offset @offset is advanced by this number. On error, a negative error
     * value is returned.
     */
-    static ssize_t led_patterns_write(struct file *file, const char __user *buf,
+    static ssize_t pwm_write(struct file *file, const char __user *buf,
     size_t count, loff_t *offset)
     {
     size_t ret;
     u32 val;
 
-    struct led_patterns_dev *priv = container_of(file->private_data,
-    struct led_patterns_dev, miscdev);
+    struct pwm_dev *priv = container_of(file->private_data,
+    struct pwm_dev, miscdev);
 
     if (*offset < 0) {
     return -EINVAL;
@@ -114,7 +109,7 @@
     return 0;
     }
     if ((*offset % 0x4) != 0) {
-    pr_warn("led_patterns_write: unaligned access\n");
+    pr_warn("pwm_write: unaligned access\n");
     return -EFAULT;
     }
 
@@ -132,7 +127,7 @@
     ret = sizeof(val);
     }
     else {
-    pr_warn("led_patterns_write: nothing copied from user space\n");
+    pr_warn("pwm_write: nothing copied from user space\n");
     ret = -EFAULT;
     }
 
@@ -146,97 +141,97 @@
 
 
     /**
-    * led_reg_show() - Return the led_reg value to user-space via sysfs.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns' platform
+    * blue_out_show() - Return the blue_out value to user-space via sysfs.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm' platform
     * device struct.
     * @attr: Unused.
     * @buf: Buffer that gets returned to user-space.
     *
     * Return: The number of bytes read.
     */
-    static ssize_t led_reg_show(struct device *dev,
+    static ssize_t blue_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
-    u8 led_reg;
-    struct led_patterns_dev *priv = dev_get_drvdata(dev);
+    u8 blue_out;
+    struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    led_reg = ioread32(priv->led_reg);
+    blue_out = ioread32(priv->blue_out);
 
-    return scnprintf(buf, PAGE_SIZE, "%u\n", led_reg);
+    return scnprintf(buf, PAGE_SIZE, "%u\n", blue_out);
     }
 
     /**
-    * led_reg_store() - Store the led_reg value.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns' platform
+    * blue_out_store() - Store the blue_out value.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm' platform
     * device struct.
     * @attr: Unused.
-    * @buf: Buffer that contains the led_reg value being written.
+    * @buf: Buffer that contains the blue_out value being written.
     * @size: The number of bytes being written.
     *
     * Return: The number of bytes stored.
     */
-    static ssize_t led_reg_store(struct device *dev,
+    static ssize_t blue_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
-    u8 led_reg;
+    u8 blue_out;
     int ret;
-    struct led_patterns_dev *priv = dev_get_drvdata(dev);
+    struct pwm_dev *priv = dev_get_drvdata(dev);
 
     // Parse the string we received as a u8
     // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
-    ret = kstrtou8(buf, 0, &led_reg);
+    ret = kstrtou8(buf, 0, &blue_out);
     if (ret < 0) {
     return ret;
     }
 
-    iowrite32(led_reg, priv->led_reg);
+    iowrite32(blue_out, priv->blue_out);
 
     // Write was successful, so we return the number of bytes we wrote.
     return size;
     }
 
     /**
-    * hps_led_control_show() - Return the hps_led_control value
+    * red_out_show() - Return the red_out value
     * to user-space via sysfs.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns' device struct.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm' device struct.
     * @attr: Unused.
     * @buf: Buffer that gets returned to user-space.
     *
     * Return: The number of bytes read.
     */
-    static ssize_t hps_led_control_show(struct device *dev,
+    static ssize_t red_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
     bool hps_control;
 
-    // Get the private led_patterns data out of the dev struct
-    struct led_patterns_dev *priv = dev_get_drvdata(dev);
+    // Get the private pwm data out of the dev struct
+    struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    hps_control = ioread32(priv->hps_led_control);
+    hps_control = ioread32(priv->red_out);
 
     return scnprintf(buf, PAGE_SIZE, "%u\n", hps_control);
     }
 
     /**
-    * hps_led_control_store() - Store the hps_led_control value.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns'
+    * red_out_store() - Store the red_out value.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm'
     * platform device struct.
     * @attr: Unused.
-    * @buf: Buffer that contains the hps_led_control value being written.
+    * @buf: Buffer that contains the red_out value being written.
     * @size: The number of bytes being written.
     *
     * Return: The number of bytes stored.
     */
-    static ssize_t hps_led_control_store(struct device *dev,
+    static ssize_t red_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
         bool hps_control;
         int ret;
-        struct led_patterns_dev *priv = dev_get_drvdata(dev);
+        struct pwm_dev *priv = dev_get_drvdata(dev);
 
         // Parse the string we received as a bool
         // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
@@ -246,7 +241,7 @@
         return ret;
         }
 
-        iowrite32(hps_control, priv->hps_led_control);
+        iowrite32(hps_control, priv->red_out);
 
         // Write was successful, so we return the number of bytes we wrote.
         return size;
@@ -254,72 +249,72 @@
 
 
     /**
-    * base_period_show() - Return the base_period value to user-space via sysfs.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns' platform
+    * green_out_show() - Return the green_out value to user-space via sysfs.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm' platform
     * device struct.
     * @attr: Unused.
     * @buf: Buffer that gets returned to user-space.
     *
     * Return: The number of bytes read.
     */
-    static ssize_t base_period_show(struct device *dev,
+    static ssize_t green_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
-    u8 base_period;
-    struct led_patterns_dev *priv = dev_get_drvdata(dev);
+    u8 green_out;
+    struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    base_period = ioread32(priv->base_period);
+    green_out = ioread32(priv->green_out);
 
-    return scnprintf(buf, PAGE_SIZE, "%u\n", base_period);
+    return scnprintf(buf, PAGE_SIZE, "%u\n", green_out);
     }
 
     /**
-    * base_period_store() - Store the base_period value.
-    * @dev: Device structure for the led_patterns component. This
-    * device struct is embedded in the led_patterns' platform
+    * green_out_store() - Store the green_out value.
+    * @dev: Device structure for the pwm component. This
+    * device struct is embedded in the pwm' platform
     * device struct.
     * @attr: Unused.
-    * @buf: Buffer that contains the base_period value being written.
+    * @buf: Buffer that contains the green_out value being written.
     * @size: The number of bytes being written.
     *
     * Return: The number of bytes stored.
     */
-    static ssize_t base_period_store(struct device *dev,
+    static ssize_t green_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
-    u8 base_period;
+    u8 green_out;
     int ret;
-    struct led_patterns_dev *priv = dev_get_drvdata(dev);
+    struct pwm_dev *priv = dev_get_drvdata(dev);
 
     // Parse the string we received as a u8
     // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
-    ret = kstrtou8(buf, 0, &base_period);
+    ret = kstrtou8(buf, 0, &green_out);
     if (ret < 0) {
     // kstrtou8 returned an error
     return ret;
     }
 
-    iowrite32(base_period, priv->base_period);
+    iowrite32(green_out, priv->green_out);
 
     // Write was successful, so we return the number of bytes we wrote.
     return size;
     }
 
     // Define sysfs attributes
-    static DEVICE_ATTR_RW(hps_led_control);
-    static DEVICE_ATTR_RW(base_period);
-    static DEVICE_ATTR_RW(led_reg);
+    static DEVICE_ATTR_RW(red_out);
+    static DEVICE_ATTR_RW(green_out);
+    static DEVICE_ATTR_RW(blue_out);
 
     // Create an attribute group so the device core can
     // export the attributes for us.
-    static struct attribute *led_patterns_attrs[] = {
-        &dev_attr_hps_led_control.attr,
-        &dev_attr_base_period.attr,
-        &dev_attr_led_reg.attr,
+    static struct attribute *pwm_attrs[] = {
+        &dev_attr_red_out.attr,
+        &dev_attr_green_out.attr,
+        &dev_attr_blue_out.attr,
         NULL,
     };
-    ATTRIBUTE_GROUPS(led_patterns);
+    ATTRIBUTE_GROUPS(pwm);
 
     // end of listings 15 - 19
 
@@ -327,9 +322,9 @@
 
 
     /**
-    *   led_patterns_fops - FIle operations supported by the
-    *                       led_patterns driver
-    *   0owner: the led_patterns driver owns the file operations; this
+    *   pwm_fops - FIle operations supported by the
+    *                       pwm driver
+    *   0owner: the pwm driver owns the file operations; this
     *           ensures that the driver can't be removed while the 
     *           character device is still in use
     *
@@ -339,37 +334,37 @@
     *            users to change what position they are writing/reading to/from
     *
     */
-    static const struct file_operations led_patterns_fops = {
+    static const struct file_operations pwm_fops = {
         .owner = THIS_MODULE,
-        .read = led_patterns_read,
-        .write = led_patterns_write,
+        .read = pwm_read,
+        .write = pwm_write,
         .llseek = default_llseek,
     };
 
     /**
-    * led_patterns_probe() - Initialize device when a match is found
-    * @pdev: Platform device structure associated with our led patterns device;
+    * pwm_probe() - Initialize device when a match is found
+    * @pdev: Platform device structure associated with our pwm patterns device;
     * pdev is automatically created by the driver core based upon our
-    * led patterns device tree node.
+    * pwm patterns device tree node.
     *
-    * When a device that is compatible with this led patterns driver is found, the
-    * driver's probe function is called. This probe function gets called by the
-    * kernel when an led_patterns device is found in the device tree.
+    * When a device that is compatible with this pwm patterns driver is found, the
+    * driver's probe function is calpwm. This probe function gets calpwm by the
+    * kernel when an pwm device is found in the device tree.
     */
-    static int led_patterns_probe(struct platform_device *pdev)
+    static int pwm_probe(struct platform_device *pdev)
     {
-    struct led_patterns_dev *priv;
+    struct pwm_dev *priv;
     size_t ret;
     /*
-    * Allocate kernel memory for the led patterns device and set it to 0.
+    * Allocate kernel memory for the pwm patterns device and set it to 0.
     * GFP_KERNEL specifies that we are allocating normal kernel RAM;
     * see the kmalloc documentation for more info. The allocated memory
     * is automatically freed when the device is removed.
     */
-    priv = devm_kzalloc(&pdev->dev, sizeof(struct led_patterns_dev),
+    priv = devm_kzalloc(&pdev->dev, sizeof(struct pwm_dev),
     GFP_KERNEL);
     if (!priv) {
-        pr_err("Failed to allocate memory\n");
+        pr_err("Faipwm to allocate memory\n");
         return -ENOMEM;
     }
 
@@ -381,54 +376,54 @@
     */
     priv->base_addr = devm_platform_ioremap_resource(pdev, 0);
     if (IS_ERR(priv->base_addr)) {
-        pr_err("Failed to request/remap platform device resource\n");
+        pr_err("Faipwm to request/remap platform device resource\n");
         return PTR_ERR(priv->base_addr);
     }
 
     // Set the memory addresses for each register.
-    priv->hps_led_control = priv->base_addr + HPS_LED_CONTROL_OFFSET;
-    priv->base_period = priv->base_addr + BASE_PERIOD_OFFSET;
-    priv->led_reg = priv->base_addr + LED_REG_OFFSET;
+    priv->red_out = priv->base_addr + Red_out_OFFSET;
+    priv->green_out = priv->base_addr + Green_out_OFFSET;
+    priv->blue_out = priv->base_addr + Blue_out_OFFSET;
 
-    // Enable software-control mode and turn all the LEDs on, just for fun.
+    // Enable software-control mode and turn all the pwms on, just for fun.
     
-    iowrite32(0xff, priv->led_reg);
+    iowrite32(0xff, priv->blue_out);
 
     //Initialize the misc device parameters
     priv->miscdev.minor = MISC_DYNAMIC_MINOR;
-    priv->miscdev.name = "led_patterns";
-    priv->miscdev.fops = &led_patterns_fops;
+    priv->miscdev.name = "pwm";
+    priv->miscdev.fops = &pwm_fops;
     priv->miscdev.parent = &pdev->dev;
 
-    iowrite32(1, priv->hps_led_control);
-    //Register the misc device; this creates a char dev at /dev/led_patterns
+    iowrite32(1, priv->red_out);
+    //Register the misc device; this creates a char dev at /dev/pwm
     ret = misc_register(&priv->miscdev);
     if(ret){
-        pr_err("Failed to register misc device");
+        pr_err("pwm to register misc device");
         return ret;
     }
 
-    /* Attach the led patterns's private data to the platform device's struct.
+    /* Attach the pwm patterns's private data to the platform device's struct.
     * This is so we can access our state container in the other functions.
     */
      platform_set_drvdata(pdev, priv);
 
-    pr_info("led_patterns_probe successful\n"); 
+    pr_info("pwm_probe successful\n"); 
     return 0;
     }
 
-    static int led_patterns_remove(struct platform_device *pdev)
+    static int pwm_remove(struct platform_device *pdev)
     {
-    // Get the led patterns's private data from the platform device.
-    struct led_patterns_dev *priv = platform_get_drvdata(pdev);
+    // Get the pwm patterns's private data from the platform device.
+    struct pwm_dev *priv = platform_get_drvdata(pdev);
 
     // Disable software-control mode, just for kicks.
-    iowrite32(0, priv->hps_led_control);
+    iowrite32(0, priv->red_out);
 
-    //Deregister the misc device and remvoe the /dev/led_patterns file
+    //Deregister the misc device and remvoe the /dev/pwm file
     misc_deregister(&priv->miscdev);
 
-    pr_info("led_patterns_remove successful\n");
+    pr_info("pwm_remove successful\n");
 
     return 0;
     }
@@ -440,28 +435,28 @@
     * to be matched with this driver, its device tree node must use the same
     * compatible string as defined here.
     */
-    static const struct of_device_id led_patterns_of_match[] = {
-    { .compatible = "Vincent,led_patterns", },
+    static const struct of_device_id pwm_of_match[] = {
+    { .compatible = "Vincent,pwm", },
     { }
     };
-    MODULE_DEVICE_TABLE(of, led_patterns_of_match);
+    MODULE_DEVICE_TABLE(of, pwm_of_match);
 
     /*
-    * struct led_patterns_driver - Platform driver struct for the led_patterns driver
-    * @probe: Function that's called when a device is found
-    * @remove: Function that's called when a device is removed
+    * struct pwm_driver - Platform driver struct for the pwm driver
+    * @probe: Function that's calpwm when a device is found
+    * @remove: Function that's calpwm when a device is removed
     * @driver.owner: Which module owns this driver
-    * @driver.name: Name of the led_patterns driver
+    * @driver.name: Name of the pwm driver
     * @driver.of_match_table: Device tree match table
     */
-    static struct platform_driver led_patterns_driver = {
-        .probe = led_patterns_probe,
-        .remove = led_patterns_remove,
+    static struct platform_driver pwm_driver = {
+        .probe = pwm_probe,
+        .remove = pwm_remove,
         .driver = {
             .owner = THIS_MODULE,
-            .name = "led_patterns",
-            .of_match_table = led_patterns_of_match,
-            .dev_groups = led_patterns_groups,
+            .name = "pwm",
+            .of_match_table = pwm_of_match,
+            .dev_groups = pwm_groups,
         },
     };
 
@@ -469,8 +464,8 @@
     * We don't need to do anything special in module init/exit.
     * This macro automatically handles module init/exit.
     */
-    module_platform_driver(led_patterns_driver);
+    module_platform_driver(pwm_driver);
 
     MODULE_LICENSE("Dual MIT/GPL");
-    MODULE_AUTHOR("Your Name");
-    MODULE_DESCRIPTION("led_patterns driver");
+    MODULE_AUTHOR("Kenneth Vincent");
+    MODULE_DESCRIPTION("pwm driver");

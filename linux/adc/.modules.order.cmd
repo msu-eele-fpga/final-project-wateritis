@@ -1,0 +1,1 @@
+savedcmd_/home/mitch/final-project-wateritis/linux/adc/modules.order := {   echo /home/mitch/final-project-wateritis/linux/adc/de10nano_adc.o; :; } > /home/mitch/final-project-wateritis/linux/adc/modules.order
