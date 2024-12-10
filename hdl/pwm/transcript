@@ -1,0 +1,194 @@
+# Compile of pwm_controller.vhd was successful.
+# Compile of pwm_controller_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.pwm_controller_tb
+# vsim -gui work.pwm_controller_tb 
+# Start time: 16:53:02 on Nov 18,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std_unsigned(body)
+# Loading work.pwm_controller_tb(testbench)
+# Loading work.pwm_controller(pwm)
+add wave sim:/pwm_controller_tb/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Kenne  Hostname: MITCH  ProcessID: 17500
+#           Attempting to use alternate WLF file "./wlftbvvehh".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftbvvehh
+# Compile of pwm_controller.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run# End time: 12:02:12 on Nov 19,2024, Elapsed time: 19:17:54
+# Errors: 0, Warnings: 21
+ontroller_tb.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller_tb(testbench)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run
+run
+run
+run
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/pwm_controller_tb/dut/high_time
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 2 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/pwm_controller_tb/dut/trunk
+add wave -position insertpoint  \
+sim:/pwm_controller_tb/dut/period_base
+add wave sim:/pwm_controller_tb/dut/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run
+run
+# Compile of pwm_controller.vhd was successful.
+# Compile of pwm_controller_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller_tb(testbench)
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+run
+run
+run
+run
+run
+add wave -position insertpoint  \
+sim:/pwm_controller_tb/dut/trunkp
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd failed with 1 errors.
+# Compile of pwm_controller.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+# Compile of pwm_controller.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.pwm_controller(pwm)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /pwm_controller_tb/dut
+# End time: 11:32:20 on Nov 22,2024, Elapsed time: 90:39:18
+# Errors: 0, Warnings: 3

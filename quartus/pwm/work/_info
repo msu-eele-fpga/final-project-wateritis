@@ -1,0 +1,601 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Kenne/labs-and-homework-KennethVincent/sim/async-conditioner
+Passert_pkg
+Z0 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
+Z1 DBx4 ieee 17 fixed_generic_pkg 4 body 22 YX7o<=i^@69Sm1gW_d;XB1
+Z2 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
+Z3 DBx4 ieee 17 float_generic_pkg 4 body 22 H?RSbZ=lR0[b?m<zWkZGN1
+Z4 DPx4 ieee 9 float_pkg 0 22 DJZPnOhNOL=fWo3;8j`XI0
+Z5 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 307
+Z8 w1725921090
+Z9 dC:/Users/Kenne/labs-and-homework-KennethVincent/quartus
+Z10 8C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/assert_pkg.vhd
+Z11 FC:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/assert_pkg.vhd
+l0
+L15 1
+VifWY@=zizRdgk45Al;PBM1
+!s100 84;PF4M2oGHXSJIi?;1J10
+Z12 OV;C;2020.1;71
+33
+b1
+Z13 !s110 1728418476
+!i10b 1
+Z14 !s108 1728418476.000000
+Z15 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/assert_pkg.vhd|
+Z16 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/assert_pkg.vhd|
+!i113 1
+Z17 o-work work -2008 -explicit
+Z18 tExplicit 1 CvgOpt 0
+Bbody
+DPx4 work 10 assert_pkg 0 22 ifWY@=zizRdgk45Al;PBM1
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+!i122 307
+l0
+L36 1
+V?f1j0@n<jMz6==FOA64QZ0
+!s100 Rb[:GU][8G>Bl>8<iQz>c2
+R12
+33
+R13
+!i10b 1
+R14
+R15
+R16
+!i113 1
+R17
+R18
+Eaysnc_conditioner
+Z19 w1728410999
+Z20 DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
+R5
+R6
+R7
+!i122 308
+R9
+Z21 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/async-conditioner/async_conditioner.vhd
+Z22 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/async-conditioner/async_conditioner.vhd
+l0
+L9 1
+V3nfl@faBfBf^:Z;R3H@CC0
+!s100 clCP4i@<Pi<?<=@EL0jk31
+R12
+33
+R13
+!i10b 1
+R14
+Z23 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/async-conditioner/async_conditioner.vhd|
+Z24 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/async-conditioner/async_conditioner.vhd|
+!i113 1
+R17
+R18
+Aasync
+R20
+R5
+R6
+R7
+DEx4 work 17 aysnc_conditioner 0 22 3nfl@faBfBf^:Z;R3H@CC0
+!i122 308
+l58
+Z25 L18 48
+VOc=ZOZTEQF>_Mf2TAZYUo2
+!s100 oF6lnTBbL[P^1z;VkNA>P1
+R12
+33
+R13
+!i10b 1
+R14
+R23
+R24
+!i113 1
+R17
+R18
+Eclk_gen
+Z26 w1728418922
+R20
+R5
+R6
+R7
+!i122 315
+R9
+Z27 8C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\clk_gen\clk_gen.vhd
+Z28 FC:\Users\Kenne\labs-and-homework-KennethVincent\hdl\clk_gen\clk_gen.vhd
+l0
+Z29 L10 1
+V7LF:;?0IOQ;;HPTKBFBWo2
+!s100 dUii^`C4;2h<eM>bz_ooA0
+R12
+33
+Z30 !s110 1728418937
+!i10b 1
+Z31 !s108 1728418937.000000
+Z32 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\clk_gen\clk_gen.vhd|
+Z33 !s107 C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\clk_gen\clk_gen.vhd|
+!i113 1
+R17
+R18
+Aclock
+R20
+R5
+R6
+R7
+Z34 DEx4 work 7 clk_gen 0 22 7LF:;?0IOQ;;HPTKBFBWo2
+!i122 315
+l50
+Z35 L24 138
+V?035nnYIhI1Q]YVX;;Y6l1
+!s100 IXS>DTZ`IBPf:KAbK=HSG2
+R12
+33
+R30
+!i10b 1
+R31
+R32
+R33
+!i113 1
+R17
+R18
+Eclk_gen_tb
+Z36 w1728418506
+Z37 DPx4 ieee 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
+R20
+R5
+R6
+R7
+!i122 313
+R9
+Z38 8C:\Users\Kenne\labs-and-homework-KennethVincent\sim\led-pattern\clk_gen_tb.vhd
+Z39 FC:\Users\Kenne\labs-and-homework-KennethVincent\sim\led-pattern\clk_gen_tb.vhd
+l0
+L7 1
+VEE6kzjCcRklY0n74UEd=K0
+!s100 W4fmmMW@@SV=R1fDl;Nhb0
+R12
+33
+Z40 !s110 1728418509
+!i10b 1
+Z41 !s108 1728418509.000000
+Z42 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:\Users\Kenne\labs-and-homework-KennethVincent\sim\led-pattern\clk_gen_tb.vhd|
+Z43 !s107 C:\Users\Kenne\labs-and-homework-KennethVincent\sim\led-pattern\clk_gen_tb.vhd|
+!i113 1
+R17
+R18
+Atestbench
+R37
+R20
+R5
+R6
+R7
+DEx4 work 10 clk_gen_tb 0 22 EE6kzjCcRklY0n74UEd=K0
+!i122 313
+l39
+L10 55
+V]Ei`cUn[EU@8UR?Td><mH2
+!s100 8Vg[jRAfTZZ[ocLamghz?0
+R12
+33
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R17
+R18
+Edebouncer
+Z44 w1728411020
+R20
+R5
+R6
+R7
+!i122 302
+R9
+Z45 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/debouncer/debouncer.vhd
+Z46 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/debouncer/debouncer.vhd
+l0
+R29
+VHZk2K`QMJZmLDUC7d5MVe0
+!s100 0f=7`nmVB7J3L0<kjHnNa1
+R12
+33
+Z47 !s110 1728418475
+!i10b 1
+Z48 !s108 1728418475.000000
+Z49 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/debouncer/debouncer.vhd|
+Z50 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/debouncer/debouncer.vhd|
+!i113 1
+R17
+R18
+Adebounce
+R20
+R5
+R6
+R7
+DEx4 work 9 debouncer 0 22 HZk2K`QMJZmLDUC7d5MVe0
+!i122 302
+l33
+L24 67
+Vg7=_m>ifYoOTXXTeA9g0=1
+!s100 8Yza9>Mim;?7i8oKCJKfB0
+R12
+33
+R47
+!i10b 1
+R48
+R49
+R50
+!i113 1
+R17
+R18
+Eled_pattern
+Z51 w1728417604
+R20
+R5
+R6
+R7
+!i122 303
+R9
+Z52 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/led_patterns/led_pattern.vhd
+Z53 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/led_patterns/led_pattern.vhd
+l0
+L9 1
+VM4:P?=zdROOUXiHC5b]=l3
+!s100 ]:M<J@DcT`]RN_WYz_L6l1
+R12
+33
+R47
+!i10b 1
+R48
+Z54 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/led_patterns/led_pattern.vhd|
+Z55 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/led_patterns/led_pattern.vhd|
+!i113 1
+R17
+R18
+Aled
+R20
+R5
+R6
+R7
+DEx4 work 11 led_pattern 0 22 M4:P?=zdROOUXiHC5b]=l3
+!i122 303
+l113
+L24 189
+V5`7Z:0_J1^G^@WfN4Ab^11
+!s100 ^1RLc]C[IW_XodKV2=X_[3
+R12
+33
+R47
+!i10b 1
+R48
+R54
+R55
+!i113 1
+R17
+R18
+Eone_pulse
+Z56 w1728411043
+R20
+R5
+R6
+R7
+!i122 304
+R9
+Z57 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/one-pulse/one-pulse.vhd
+Z58 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/one-pulse/one-pulse.vhd
+l0
+L9 1
+VTceQSe]9oR;jJO[DDm8CD1
+!s100 ocgN9>fUDSO0Q^FgZzhf@3
+R12
+33
+R13
+!i10b 1
+R48
+Z59 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/one-pulse/one-pulse.vhd|
+Z60 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/one-pulse/one-pulse.vhd|
+!i113 1
+R17
+R18
+Apulse
+R20
+R5
+R6
+R7
+DEx4 work 9 one_pulse 0 22 TceQSe]9oR;jJO[DDm8CD1
+!i122 304
+l22
+R25
+VYiS3nFmL8C7zE@80oJIoP3
+!s100 ATDhDA3HKU1b@GjXjT0:o2
+R12
+33
+R13
+!i10b 1
+R48
+R59
+R60
+!i113 1
+R17
+R18
+Pprint_pkg
+R5
+R6
+R7
+!i122 305
+R8
+R9
+Z61 8C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/print_pkg.vhd
+Z62 FC:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/print_pkg.vhd
+l0
+L13 1
+V3Z:O`imRG^DDM`Q71PPHK2
+!s100 jQbR4@Sk@3jTF?5LQ1Z7U0
+R12
+33
+b1
+R13
+!i10b 1
+R14
+Z63 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/print_pkg.vhd|
+Z64 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/print_pkg.vhd|
+!i113 1
+R17
+R18
+Bbody
+DPx4 work 9 print_pkg 0 22 3Z:O`imRG^DDM`Q71PPHK2
+R5
+R6
+R7
+!i122 305
+l0
+L26 1
+VF?jMU2BBA4SH65:A^ZDAa3
+!s100 D;hG@]f7_oWZ5N^SBRUh63
+R12
+33
+R13
+!i10b 1
+R14
+R63
+R64
+!i113 1
+R17
+R18
+Epttn_gen
+Z65 w1728412343
+R20
+R5
+R6
+R7
+!i122 301
+R9
+Z66 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/pttn_gen/pttn_gen.vhd
+Z67 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/pttn_gen/pttn_gen.vhd
+l0
+R29
+V9Ac_XJld@XoOYG6`^AkMB2
+!s100 ^Pa`MJG7CcmLlBXSA_4zQ2
+R12
+33
+R47
+!i10b 1
+R48
+Z68 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/pttn_gen/pttn_gen.vhd|
+Z69 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/pttn_gen/pttn_gen.vhd|
+!i113 1
+R17
+R18
+Apatterns
+R20
+R5
+R6
+R7
+DEx4 work 8 pttn_gen 0 22 9Ac_XJld@XoOYG6`^AkMB2
+!i122 301
+l40
+L29 116
+VM?Elij`oXg8lY=D<<52jW0
+!s100 S6HeK6@W6eGAO2Q9m5LhY0
+R12
+33
+R47
+!i10b 1
+R48
+R68
+R69
+!i113 1
+R17
+R18
+Epttn_gen_tb
+Z70 w1728341837
+R37
+R20
+R5
+R6
+R7
+!i122 311
+R9
+Z71 8C:/Users/Kenne/labs-and-homework-KennethVincent/sim/led-pattern/pttn_gen_tb.vhd
+Z72 FC:/Users/Kenne/labs-and-homework-KennethVincent/sim/led-pattern/pttn_gen_tb.vhd
+l0
+L7 1
+Vk^9h@4H7CdUf[P[ij_O1z1
+!s100 1Zn[V_<^G5;=`9SI?cKZ21
+R12
+32
+R13
+!i10b 1
+R14
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/sim/led-pattern/pttn_gen_tb.vhd|
+Z74 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/sim/led-pattern/pttn_gen_tb.vhd|
+!i113 1
+Z75 o-work work -2002 -explicit
+R18
+Atestbench
+R37
+R20
+R5
+R6
+R7
+DEx4 work 11 pttn_gen_tb 0 22 k^9h@4H7CdUf[P[ij_O1z1
+!i122 311
+l48
+L10 76
+V:N66Dc5=gEI9:DL=?diKa1
+!s100 7U[ozi39^zXQF=gK:[@S@2
+R12
+32
+R13
+!i10b 1
+R14
+R73
+R74
+!i113 1
+R75
+R18
+Esynchronizer
+Z76 w1725662088
+R20
+R5
+R6
+R7
+!i122 310
+R9
+Z77 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/synchronizer.vhd
+Z78 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/synchronizer.vhd
+l0
+L6 1
+VS_n5FR^m9HGU3f2KQm:8z3
+!s100 Y=>h87VV933HVb3SNPf_U3
+R12
+33
+R13
+!i10b 1
+R14
+Z79 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/synchronizer.vhd|
+Z80 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/synchronizer.vhd|
+!i113 1
+R17
+R18
+Aarchitecture_synchronizer
+R20
+R5
+R6
+R7
+DEx4 work 12 synchronizer 0 22 S_n5FR^m9HGU3f2KQm:8z3
+!i122 310
+l17
+L14 13
+VbR9>z0WWFQd9]8oHzeg^i2
+!s100 8hP34BE:W>=:HZ7kiYc:`0
+R12
+33
+R13
+!i10b 1
+R14
+R79
+R80
+!i113 1
+R17
+R18
+Ptb_pkg
+R6
+R7
+!i122 306
+Z81 w1727731208
+R9
+Z82 8C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/tb_pkg.vhd
+Z83 FC:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/tb_pkg.vhd
+l0
+L4 1
+V0D3VS:EGjB0][dGHY:nmk3
+!s100 f>5<h1mm[O]@4>;ZcK43E2
+R12
+33
+b1
+R13
+!i10b 1
+R14
+Z84 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/tb_pkg.vhd|
+Z85 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/sim/common/tb_pkg.vhd|
+!i113 1
+R17
+R18
+Bbody
+DPx4 work 6 tb_pkg 0 22 0D3VS:EGjB0][dGHY:nmk3
+R6
+R7
+!i122 306
+l0
+L12 1
+V:C3_=RZAgLM?@KA>eH4c81
+!s100 @jHjbHI3W^=o@>0Lok4>A0
+R12
+33
+R13
+!i10b 1
+R14
+R84
+R85
+!i113 1
+R17
+R18
+Etimed_counter
+Z86 w1726101826
+R6
+R7
+!i122 312
+R9
+Z87 8C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/timed-counter/timed_counter.vhd
+Z88 FC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/timed-counter/timed_counter.vhd
+l0
+L4 1
+V;[jc`lAQN6znNWkhk5oVk0
+!s100 ^cYC@IIdjKbFC[>EQL5<e3
+R12
+32
+Z89 !s110 1728418477
+!i10b 1
+R14
+Z90 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/timed-counter/timed_counter.vhd|
+Z91 !s107 C:/Users/Kenne/labs-and-homework-KennethVincent/hdl/timed-counter/timed_counter.vhd|
+!i113 1
+R75
+R18
+Aarch_timed_counter
+R6
+R7
+DEx4 work 13 timed_counter 0 22 ;[jc`lAQN6znNWkhk5oVk0
+!i122 312
+l19
+L15 24
+VzJ5;XVimkZoP<6LnkWHig1
+!s100 4NjTao??[Naa4e7o1CYdA2
+R12
+32
+R89
+!i10b 1
+R14
+R90
+R91
+!i113 1
+R75
+R18

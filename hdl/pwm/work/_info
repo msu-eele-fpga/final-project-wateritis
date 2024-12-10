@@ -1,0 +1,101 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Kenne/labs-and-homework-KennethVincent/quartus
+Epwm_controller
+Z0 w1732140199
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 36
+Z4 dC:/Users/Kenne/labs-and-homework-KennethVincent/hdl/pwm
+Z5 8C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller.vhd
+Z6 FC:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller.vhd
+l0
+L5 1
+VZ_YJ@9h2mF>86m4O:Y;n<2
+!s100 @Qj3RShUdYW^BY3T4JjD82
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1732140204
+!i10b 1
+Z9 !s108 1732140204.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller.vhd|
+Z11 !s107 C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Apwm
+R1
+R2
+R3
+Z14 DEx4 work 14 pwm_controller 0 22 Z_YJ@9h2mF>86m4O:Y;n<2
+!i122 36
+l34
+Z15 L23 35
+V=:Ro3K]gImJULeX=Ejf8V2
+!s100 DT[z@1a5>;ITi?nBA5L=m0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Epwm_controller_tb
+Z16 w1732053482
+Z17 DPx4 ieee 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
+Z18 DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
+R1
+R2
+R3
+!i122 29
+R4
+Z19 8C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller_tb.vhd
+Z20 FC:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller_tb.vhd
+l0
+L7 1
+VD@4;31L<9Uk?V;7Ql6:AJ1
+!s100 ^^1:c^GFkKEQ5WQI5KF2T1
+R7
+32
+Z21 !s110 1732053488
+!i10b 1
+Z22 !s108 1732053488.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller_tb.vhd|
+Z24 !s107 C:\Users\Kenne\labs-and-homework-KennethVincent\hdl\pwm\pwm_controller_tb.vhd|
+!i113 1
+R12
+R13
+Atestbench
+R17
+R18
+R1
+R2
+R3
+DEx4 work 17 pwm_controller_tb 0 22 D@4;31L<9Uk?V;7Ql6:AJ1
+!i122 29
+l38
+L10 51
+VJhbz3jK0ceHUNzQnF`HF72
+!s100 86HL0fDD1ncWT@b:?K]^c2
+R7
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 1
+R12
+R13

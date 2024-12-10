@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "gpio_1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio_1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio_1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_clk1_50",
+					"strict" : false
+				},
+				{
+					"name" : "Key[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
