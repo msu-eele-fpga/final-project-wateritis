@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "4";
          type = "int";
       }
    }
@@ -25,12 +25,20 @@
          type = "String";
       }
    }
-   element PWM_Controller_avalon_0
+   element Kirkland_PWM_Controller_avalon_0
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "5";
          type = "int";
+      }
+   }
+   element Kirkland_PWM_Controller_avalon_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "1304336";
+         type = "String";
       }
    }
    element PWM_Controller_avalon_0.avalon_slave_0
@@ -74,7 +82,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "3";
          type = "int";
       }
    }
@@ -378,14 +386,14 @@
  <interface name="memory" internal="hps.memory" type="conduit" dir="end" />
  <interface
    name="pwm_controller"
-   internal="PWM_Controller_avalon_0.export"
+   internal="Kirkland_PWM_Controller_avalon_0.gpio"
    type="conduit"
    dir="end" />
  <interface name="reset" internal="fpga_clk.clk_in_reset" type="reset" dir="end" />
  <module name="Buzzer_avalon_0" kind="Buzzer_avalon" version="1.0" enabled="1" />
  <module
-   name="PWM_Controller_avalon_0"
-   kind="PWM_Controller_avalon"
+   name="Kirkland_PWM_Controller_avalon_0"
+   kind="Kirkland_PWM_Controller_avalon"
    version="1.0"
    enabled="1" />
  <module name="fpga_clk" kind="clock_source" version="23.1" enabled="1">
@@ -956,15 +964,6 @@
    kind="avalon"
    version="23.1"
    start="hps.h2f_lw_axi_master"
-   end="PWM_Controller_avalon_0.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0013e710" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="23.1"
-   start="hps.h2f_lw_axi_master"
    end="Buzzer_avalon_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00134200" />
@@ -973,24 +972,24 @@
  <connection
    kind="avalon"
    version="23.1"
-   start="jtag_mm1_0.master"
-   end="PWM_Controller_avalon_0.avalon_slave_0">
+   start="hps.h2f_lw_axi_master"
+   end="Kirkland_PWM_Controller_avalon_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0013e710" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="23.1" start="fpga_clk.clk" end="jtag_mm1.clk" />
- <connection
-   kind="clock"
-   version="23.1"
-   start="fpga_clk.clk"
-   end="PWM_Controller_avalon_0.clk" />
  <connection kind="clock" version="23.1" start="fpga_clk.clk" end="jtag_mm1_0.clk" />
  <connection
    kind="clock"
    version="23.1"
    start="fpga_clk.clk"
    end="Buzzer_avalon_0.clk" />
+ <connection
+   kind="clock"
+   version="23.1"
+   start="fpga_clk.clk"
+   end="Kirkland_PWM_Controller_avalon_0.clk" />
  <connection
    kind="clock"
    version="23.1"
@@ -1010,12 +1009,12 @@
    kind="reset"
    version="23.1"
    start="fpga_clk.clk_reset"
-   end="PWM_Controller_avalon_0.rst" />
+   end="Buzzer_avalon_0.rst" />
  <connection
    kind="reset"
    version="23.1"
    start="fpga_clk.clk_reset"
-   end="Buzzer_avalon_0.rst" />
+   end="Kirkland_PWM_Controller_avalon_0.rst" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
