@@ -6,7 +6,7 @@
 
 This VHDL code makes a pulse width modulator, where duty cycle is a fixed point 22.21 number, and period is a fixed point 13.7 number.
 
-### PWM_Controller_avalon
+### PWM_Controller_avalon.vhdl
 
 This exports the pulse width modulator for the avalon memory mapping tools
 
