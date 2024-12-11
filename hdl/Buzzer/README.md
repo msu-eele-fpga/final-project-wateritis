@@ -10,6 +10,10 @@ This VHDL code makes a square wave with a 50% duty cycle. This uses a period whi
 
 This exports the buzzer for the avalon memory mapping tools
 
+### Buzzer_avalon_hw.tcl
+
+Device manager buzzer avalon component
+
 ## Device Tree Node
 
 ```dts
