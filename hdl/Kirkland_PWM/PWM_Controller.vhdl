@@ -1,3 +1,11 @@
+----------------------------------------------------------------------------
+-- Description:  PWM controller - Makes a square wave with arbitrary positive pulse widths
+----------------------------------------------------------------------------
+-- Author:       Grant Kirkland
+-- Company:      Montana State University
+-- Create Date:  December 09, 2024
+-- Revision:     1.0
+----------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -30,7 +38,7 @@ architecture PWM_Controller_arch of PWM_Controller is
 	
 begin
 
-
+	-- Repeatedly cycles through the period and high counters, outputting 1 while high is counting down, and 0 after high is finished and period is still counting
 	modulator : process(clk, rst)
 	begin
 
@@ -60,6 +68,7 @@ begin
 		end if;
 	end process modulator;
 	
+	-- Forwards output to output port
 	output_logic: process(clk, rst)
 	begin
 		if (rising_edge(clk)) then
