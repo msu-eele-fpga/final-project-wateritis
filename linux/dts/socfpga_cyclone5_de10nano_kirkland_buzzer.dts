@@ -1,7 +1,7 @@
 #include "socfpga_cyclone5_de10nano.dtsi"
 
 /{
-	rgb_controller: rgb_controller@ff200000 {
+	buzzer: buzzer@ff200000 {
 		compatible = "Kirkland,kirkland_buzzer";
 		reg = <0xff200000 4>;
 	};
