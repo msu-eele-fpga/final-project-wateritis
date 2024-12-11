@@ -1,0 +1,8 @@
+#include "socfpga_cyclone5_de10nano.dtsi"
+
+/{
+	buzzer: buzzer@ff200000 {
+		compatible = "Kirkland,kirkland_buzzer";
+		reg = <0xff200000 4>;
+	};
+};
