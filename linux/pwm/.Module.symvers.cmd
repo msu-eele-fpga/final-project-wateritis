@@ -1,1 +1,0 @@
-savedcmd_/home/mitch/final-project-wateritis/linux/pwm/Module.symvers :=  scripts/mod/modpost -M        -o /home/mitch/final-project-wateritis/linux/pwm/Module.symvers -T /home/mitch/final-project-wateritis/linux/pwm/modules.order -i Module.symvers -e 

@@ -270,7 +270,11 @@ architecture DE10Nano_arch of DE10_Top_Level is
       pwd_controller_green_out        : out   std_logic;                                        -- green_out
       pwd_controller_blue_out         : out   std_logic;                                        -- blue_out                                         -- output
       clk_clk                         : in    std_logic;
-      reset_reset_n                   : in    std_logic
+      reset_reset_n                   : in    std_logic;
+		adc_sclk                        : out   std_logic;                                        -- sclk
+      adc_cs_n                        : out   std_logic;                                        -- cs_n
+      adc_dout                        : in    std_logic                     := 'X';             -- dout
+      adc_din                         : out   std_logic 
     );
   end component soc_system;
 	
@@ -386,7 +390,12 @@ begin
       pwd_controller_blue_out         => gpio_1(2),         --               .blue_out
             
       clk_clk       => fpga_clk1_50,
-      reset_reset_n => KEY(0)
+      reset_reset_n => KEY(0),
+		
+		adc_sclk                        => adc_sck,                        --            adc.sclk
+      adc_cs_n                        => adc_convst,                        --               .cs_n
+      adc_dout                        => adc_sdo,                        --               .dout
+      adc_din                         => adc_sdi 
     );
 	
 end architecture DE10Nano_arch;
