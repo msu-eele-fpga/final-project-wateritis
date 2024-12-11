@@ -2,7 +2,7 @@
 
 /{
 	rgb_controller: rgb_controller@ff33E710 {
-		compatible = "Kirkland,rgb_controller";
+		compatible = "Kirkland,kirkland_rgb";
 		reg = <0xff33E710 16>;
 	};
 };
