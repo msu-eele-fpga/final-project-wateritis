@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 23.1 993 (Future versions may contain additional information.) -->
- <!-- 2024.12.11.09:45:31 -->
+ <!-- 2024.12.11.11:14:10 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1733935530</value>
+  <value>1733940849</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -17068,7 +17068,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Buzzer_avalon_0</moduleName>
     <slaveName>avalon_slave_0</slaveName>
     <name>Buzzer_avalon_0.avalon_slave_0</name>
-    <baseAddress>0</baseAddress>
+    <baseAddress>1262080</baseAddress>
     <span>16</span>
    </memoryBlock>
   </interface>
@@ -42906,7 +42906,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Buzzer_avalon_0</moduleName>
     <slaveName>avalon_slave_0</slaveName>
     <name>Buzzer_avalon_0.avalon_slave_0</name>
-    <baseAddress>0</baseAddress>
+    <baseAddress>1262080</baseAddress>
     <span>16</span>
    </memoryBlock>
   </interface>
@@ -44029,7 +44029,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Buzzer_avalon_0</moduleName>
     <slaveName>avalon_slave_0</slaveName>
     <name>Buzzer_avalon_0.avalon_slave_0</name>
-    <baseAddress>4280287232</baseAddress>
+    <baseAddress>4281549312</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -44856,7 +44856,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>Buzzer_avalon_0</moduleName>
     <slaveName>avalon_slave_0</slaveName>
     <name>Buzzer_avalon_0.avalon_slave_0</name>
-    <baseAddress>4280287232</baseAddress>
+    <baseAddress>4281549312</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -81617,7 +81617,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x0000</value>
+   <value>0x00134200</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

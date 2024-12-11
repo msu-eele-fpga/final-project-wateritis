@@ -17,6 +17,14 @@
          type = "int";
       }
    }
+   element Buzzer_avalon_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "1262080";
+         type = "String";
+      }
+   }
    element PWM_Controller_avalon_0
    {
       datum _sortIndex
@@ -959,7 +967,7 @@
    start="hps.h2f_lw_axi_master"
    end="Buzzer_avalon_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x00134200" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
