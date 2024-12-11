@@ -2,6 +2,10 @@
 
 ## Files
 
+### Kirkland_PWM_Controller_avalon_hw.tcl
+
+Device manager component for the avalon PWM_controller
+
 ### PWM_Controller.vhdl
 
 This VHDL code makes a pulse width modulator, where duty cycle is a fixed point 22.21 number, and period is a fixed point 13.7 number.
