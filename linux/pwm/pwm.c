@@ -153,7 +153,7 @@
     static ssize_t blue_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
-    u8 blue_out;
+    u32 blue_out;
     struct pwm_dev *priv = dev_get_drvdata(dev);
 
     blue_out = ioread32(priv->blue_out);
@@ -175,13 +175,13 @@
     static ssize_t blue_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
-    u8 blue_out;
+    u32 blue_out;
     int ret;
     struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    // Parse the string we received as a u8
+    // Parse the string we received as a u32
     // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
-    ret = kstrtou8(buf, 0, &blue_out);
+    ret = kstrtou32(buf, 0, &blue_out);
     if (ret < 0) {
     return ret;
     }
@@ -205,14 +205,14 @@
     static ssize_t red_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
-    bool hps_control;
+    u32 red_out;
 
     // Get the private pwm data out of the dev struct
     struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    hps_control = ioread32(priv->red_out);
+    red_out = ioread32(priv->red_out);
 
-    return scnprintf(buf, PAGE_SIZE, "%u\n", hps_control);
+    return scnprintf(buf, PAGE_SIZE, "%u\n", red_out);
     }
 
     /**
@@ -229,19 +229,19 @@
     static ssize_t red_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
-        bool hps_control;
+        u32 red_out;
         int ret;
         struct pwm_dev *priv = dev_get_drvdata(dev);
 
         // Parse the string we received as a bool
         // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
-        ret = kstrtobool(buf, &hps_control);
+        ret = kstrtou32(buf, 0,&red_out);
         if (ret < 0) {
         // kstrtobool returned an error
         return ret;
         }
 
-        iowrite32(hps_control, priv->red_out);
+        iowrite32(red_out, priv->red_out);
 
         // Write was successful, so we return the number of bytes we wrote.
         return size;
@@ -261,7 +261,7 @@
     static ssize_t green_out_show(struct device *dev,
     struct device_attribute *attr, char *buf)
     {
-    u8 green_out;
+    u32 green_out;
     struct pwm_dev *priv = dev_get_drvdata(dev);
 
     green_out = ioread32(priv->green_out);
@@ -283,15 +283,15 @@
     static ssize_t green_out_store(struct device *dev,
     struct device_attribute *attr, const char *buf, size_t size)
     {
-    u8 green_out;
+    u32 green_out;
     int ret;
     struct pwm_dev *priv = dev_get_drvdata(dev);
 
-    // Parse the string we received as a u8
+    // Parse the string we received as a u32
     // See https://elixir.bootlin.com/linux/latest/source/lib/kstrtox.c#L289
-    ret = kstrtou8(buf, 0, &green_out);
+    ret = kstrtou32(buf, 0, &green_out);
     if (ret < 0) {
-    // kstrtou8 returned an error
+    // kstrtou32 returned an error
     return ret;
     }
 
