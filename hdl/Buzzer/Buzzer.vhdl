@@ -1,3 +1,12 @@
+----------------------------------------------------------------------------
+-- Description:  PWM controller - Makes a square wave with 50% duty cycle, with higher frequency support than RGB components
+----------------------------------------------------------------------------
+-- Author:       Grant Kirkland
+-- Company:      Montana State University
+-- Create Date:  December 09, 2024
+-- Revision:     1.0
+----------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -26,7 +35,7 @@ architecture Buzzer_arch of Buzzer is
 	
 begin
 
-
+	-- Repeatedly cycles through the period and high counters, outputting 1 while high is counting down, and 0 after high is finished and period is still counting
 	modulator : process(clk, rst)
 	begin
 		if (rst = '1') then
@@ -57,7 +66,8 @@ begin
 			PWM_output <= '0';
 		end if;
 	end process modulator;
-	
+
+	-- Forwards output to output port
 	output_logic: process(clk, rst)
 	begin
 		if (rising_edge(clk)) then

@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------
--- Description:  LED pattern device which implements the state machine and the asynchronous conditioning conditions on the push button input.
+-- Description:  Buzzer avalon support.
 ----------------------------------------------------------------------------
 -- Author:       Grant Kirkland
 -- Company:      Montana State University
--- Create Date:  October 13, 2024
+-- Create Date:  December 09, 2024
 -- Revision:     1.0
 ----------------------------------------------------------------------------
 
@@ -58,7 +58,8 @@ begin
 		period => unsigned(period_reg(period_width - 1 downto 0)),
 		output => GPIO
 	);
-
+	
+	-- Checks if read was flagged, if so, checks register and reads out data
 	avalon_register_read : process(clk)
 	begin
 		if (rising_edge(clk) and avs_read = '1') then
@@ -69,7 +70,7 @@ begin
 		end if;
 	end process avalon_register_read;
 
-	
+	-- Checks if write was flagged, if so checks address and writes to appropriate register
 	avalon_register_write : process(clk, rst)
 	begin
 		if (rst = '1') then
