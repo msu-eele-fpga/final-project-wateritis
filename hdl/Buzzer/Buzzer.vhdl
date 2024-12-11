@@ -29,15 +29,25 @@ begin
 
 	modulator : process(clk, rst)
 	begin
-
 		if (rst = '1') then
 			PWM_output <= '1';
-			period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 12)) - 1;
-			high_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 13)) - 1;
+			if (period = 0) then
+				period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * 8, 12)) - 1;
+				high_counter <= 0;
+			else 
+				period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 12)) - 1;
+				high_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 13)) - 1;
+			end if;
 		elsif (rising_edge(clk) and period_counter = 0) then
-			period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 12)) - 1;
-			high_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 13)) - 1;
-			PWM_output <= '1';
+			if (period > 0) then
+				period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 12)) - 1;
+				high_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * period, 13)) - 1;
+				PWM_output <= '1';
+			else 
+				period_counter <= to_integer(shift_right(to_unsigned(system_clock_frequency, 32) * 8, 12)) - 1;
+				high_counter <= 0;
+				PWM_output <= '0';
+			end if;
 		elsif (rising_edge(clk) and high_counter > 0) then
 			period_counter <= period_counter - 1;
 			high_counter <= high_counter - 1;
