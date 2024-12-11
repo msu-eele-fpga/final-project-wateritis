@@ -1,0 +1,8 @@
+#include "socfpga_cyclone5_de10nano.dtsi"
+
+/{
+	rgb_controller: rgb_controller@ff33E710 {
+		compatible = "Kirkland,rgb_controller";
+		reg = <0xff33E710 16>;
+	};
+};
