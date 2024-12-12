@@ -1,6 +1,6 @@
 # kirkland-rgb
 
-These files are for the driver for the rgb led controller, allowing the registers to be accessed from linux.
+These files are for the driver for the buzzer, allowing the registers to be accessed from linux.
 
 ## Building
 
@@ -14,20 +14,20 @@ Additionally, both the c and makefile need to be moved outside of the shared fol
 
 ## Files
 
-### kirkland-rgb.c
+### kirkland-buzzer.c
 
 Main driver file
 
-### kirkland-rgb.ko
+### kirkland-buzzer.ko
 Compiled driver module for ARM. Can be loaded using the command
 
 ```command
-sudo insmod kirkland-rgb.ko
+sudo insmod kirkland-buzzer.ko
 ```
 
 Removing the module can be done using
 ```
-sudo rmmod kirkland_rgb
+sudo rmmod kirkland_buzzer
 ```
 
 
