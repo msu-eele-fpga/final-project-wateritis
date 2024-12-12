@@ -9,6 +9,22 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element Buzzer_avalon_0
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element Buzzer_avalon_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "1262080";
+         type = "String";
+      }
+   }
    element adc
    {
       datum _sortIndex
@@ -366,6 +382,11 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="adc" internal="adc.external_interface" type="conduit" dir="end" />
+ <interface
+   name="buzzer"
+   internal="Buzzer_avalon_0.gpio"
+   type="conduit"
+   dir="end" />
  <interface name="clk" internal="fpga_clk.clk_in" type="clock" dir="end" />
  <interface name="hps_i2c0" internal="hps.i2c0" />
  <interface name="hps_i2c0_clk" internal="hps.i2c0_clk" />
@@ -380,6 +401,7 @@
    type="conduit"
    dir="end" />
  <interface name="reset" internal="fpga_clk.clk_in_reset" type="reset" dir="end" />
+ <module name="Buzzer_avalon_0" kind="Buzzer_avalon" version="1.0" enabled="1" />
  <module name="adc" kind="altera_up_avalon_adc" version="18.0" enabled="1">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="12500000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
@@ -1159,6 +1181,15 @@
    kind="avalon"
    version="23.1"
    start="hps.h2f_lw_axi_master"
+   end="Buzzer_avalon_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00134200" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="23.1"
+   start="hps.h2f_lw_axi_master"
    end="pwd_controller_avalon_0.pwd_controller_avalon0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0005e240" />
@@ -1183,6 +1214,11 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="23.1" start="fpga_clk.clk" end="jtag_mm1.clk" />
+ <connection
+   kind="clock"
+   version="23.1"
+   start="fpga_clk.clk"
+   end="Buzzer_avalon_0.clk" />
  <connection
    kind="clock"
    version="23.1"
@@ -1215,6 +1251,11 @@
    version="23.1"
    start="fpga_clk.clk_reset"
    end="pwd_controller_avalon_0.reset_sink" />
+ <connection
+   kind="reset"
+   version="23.1"
+   start="fpga_clk.clk_reset"
+   end="Buzzer_avalon_0.rst" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

@@ -274,7 +274,8 @@ architecture DE10Nano_arch of DE10_Top_Level is
 		adc_sclk                        : out   std_logic;                                        -- sclk
       adc_cs_n                        : out   std_logic;                                        -- cs_n
       adc_dout                        : in    std_logic                     := 'X';             -- dout
-      adc_din                         : out   std_logic 
+      buzzer_gpio                     : out   std_logic;  
+		adc_din                         : out   std_logic 
     );
   end component soc_system;
 	
@@ -392,6 +393,10 @@ begin
       clk_clk       => fpga_clk1_50,
       reset_reset_n => KEY(0),
 		
+		--buzzer
+		buzzer_gpio                     => gpio_0(3),
+		
+		--adc
 		adc_sclk                        => adc_sck,                        --            adc.sclk
       adc_cs_n                        => adc_convst,                        --               .cs_n
       adc_dout                        => adc_sdo,                        --               .dout
