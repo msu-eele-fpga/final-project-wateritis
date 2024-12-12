@@ -15,4 +15,9 @@
     	compatible = "adsd,de10nano_adc";
     	reg = <0xff200000 32>;
 	};
+
+    pwm: pwm@ff25E240 {
+        compatible = "Vincent,pwm";
+        reg = <0xff25E240 16>;
+    };
 };
