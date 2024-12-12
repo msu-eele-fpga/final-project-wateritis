@@ -1,0 +1,23 @@
+#include "socfpga_cyclone5_de10nano.dtsi"
+
+/{
+	buzzer: buzzer@ff334200 {
+		compatible = "Kirkland,kirkland_buzzer";
+		reg = <0xff334200 4>;
+	};
+
+	rgb_controller: rgb_controller@ff33E710 {
+		compatible = "Kirkland,kirkland_rgb";
+		reg = <0xff33E710 16>;
+	};
+
+	de10nano_adc: adc@ff200000 {
+    	compatible = "adsd,de10nano_adc";
+    	reg = <0xff200000 32>;
+	};
+
+    pwm: pwm@ff25E240 {
+        compatible = "Vincent,pwm";
+        reg = <0xff25E240 16>;
+    };
+};
